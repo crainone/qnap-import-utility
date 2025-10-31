@@ -1,0 +1,11 @@
+services:
+  qnap-import-utility:
+    container_name: qnap-import-utility
+    image: crainone/qnap-import-utility:latest
+    build:
+        context: .
+        dockerfile: Dockerfile
+    volumes:
+        - /share/Download:/app/downloads
+        - /share/Config/app/.env:/app/.env
+    restart: unless-stopped
